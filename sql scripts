@@ -1,0 +1,15 @@
+show search_path;
+
+alter role postgres set search_path=public;
+
+select * from customer;
+
+create SEQUENCE customer_id_seq  START WITH 1 INCREMENT BY 1 ;
+
+drop table customer;
+
+CREATE TABLE customer(
+    id integer primary key default nextval('customer_id_seq'),
+    first_name varchar,
+    last_name varchar
+)
